@@ -17,11 +17,10 @@ steps:
 - task: AzureMysqlDeployment@1
   displayName: 'Execute Azure MySQL : InlineSqlTask'
   inputs:
-    ConnectedServiceName: d1517a4b-9711-47d4-8c47-f042535711bb
-    ServerName: mjr104mysql.mysql.database.azure.com
+    ConnectedServiceName: $(ConnectedServiceName)
+    ServerName: $(ServerName)
     DatabaseName: schema1
-    SqlUsername: mjr104mysql@mjr104mysql
-    SqlPassword: MR@kxC82K*7vbx*rFfevyJ562
+    SqlUsername: $(SqlUserName)
+    SqlPassword: $(SqlPassword)
     TaskNameSelector: InlineSqlTask
-    SqlFile: SELECT * FROM schema1.table1
     SqlInline: SELECT * FROM schema1.table1;
